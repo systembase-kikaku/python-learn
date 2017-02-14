@@ -1,9 +1,10 @@
-def odd(s, e):
-    i = s
-    while i < e:
-        if i % 2 == 1:
-            yield i
-        i += 1
+def genOdd():
+    i = 0
+    while i <= 30:
+        yield i
+        i += 2
 
-for i in odd(2, 30):
-    print(i)
+it = genOdd();
+
+for v in it:
+    print(v)
