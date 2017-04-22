@@ -8,6 +8,9 @@ def img_show(img):
         canvas.paste(pil_img, (i * 28, 0))
     canvas.show()
 
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+
 def softmax(a):
     c = np.max(a)
     exp_a = np.exp(a - c)
