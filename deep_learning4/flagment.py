@@ -2,7 +2,7 @@ import sys, os
 sys.path.append(os.pardir)
 import numpy as np
 from common import mean_squared_error, cross_entropy_error, \
-  numerical_diff, numerical_gradient
+  numerical_diff, numerical_gradient, gradient_descent
 from dataset.mnist import load_mnist
 
 t = [0, 0, 1, 0, 0]
@@ -46,3 +46,10 @@ def function_2(x):
 print(numerical_gradient(function_2, np.array([3.0, 4.0])))
 print(numerical_gradient(function_2, np.array([0.0, 2.0])))
 print(numerical_gradient(function_2, np.array([3.0, 0.0])))
+
+print("勾配法-------------")
+
+init_x = np.array([-3.0, 4.0])
+print(gradient_descent(function_2, init_x, 0.1, 100))
+print(gradient_descent(function_2, init_x, 10.0, 100))
+print(gradient_descent(function_2, init_x, 1e-10, 100))
